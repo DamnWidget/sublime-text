@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="=app-admin/eselect-sublime-1.0
-	=media-libs/libpng-1.2.46
+	>=media-libs/libpng-1.2.46
 	>=x11-libs/gtk+-2.24.8-r1:2"
 RDEPEND="${DEPEND}"
 
