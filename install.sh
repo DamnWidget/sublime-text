@@ -33,21 +33,8 @@ install_layman() {
 
 # check for layman
 [ -x $LAYMAN ] || {
-	echo -n "Layman is not installed on the system. Do you want to install layman now? [yes/no]: "
-	read answer
-
-	case "$answer" in
-		"yes")
-			install_layman
-			;;
-		"y")
-			install_layman
-			;;
-		*)
-			echo "Install layman manually and try again when done."
-			exit
-			;;
-	esac
+	echo -n "Layman is not installed on the system. Installing layman..."	
+	install_layman
 }
 
 echo "Retrieving overlay definition file..."

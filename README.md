@@ -13,7 +13,7 @@ The easier way to install this overlay is using through the installation script 
 The install.sh Script
 ---------------------
 
-		wget --no-check-certificate https://raw.github.com/DamnWidget/sublime-text/master/install.sh -O - | sh
+		wget --no-check-certificate https://raw.github.com/DamnWidget/sublime-text/master/install.sh -O - | sudo sh
 
 
 Manual Way
