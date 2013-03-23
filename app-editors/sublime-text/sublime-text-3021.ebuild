@@ -5,6 +5,7 @@
 EAPI="4"
 inherit eutils
 
+PACKAGE_INSTALL_NAME="sublime_text_3"
 PACKAGE_NAME="sublime_text_3_build"
 PACKAGE="${PACKAGE_NAME}_${PV}"
 S="${WORKDIR}/sublime_text_3"
@@ -32,9 +33,9 @@ src_install() {
 	einfo "its propietary license in an implicit way"
 	einfo "If you're unsure about this just hit Ctrl+C now"
 
-	insinto /opt/${PN}_${PV%%.*}
-	into /opt/${PN}_${PV%%.*}
-	exeinto /opt/${PN}_${PV%%.*}
+	insinto /opt/${PACKAGE_INSTALL_NAME}
+	into /opt/${PACKAGE_INSTALL_NAME}
+	exeinto /opt/${PACKAGE_INSTALL_NAME}
 	doins -r "Icon"	
 	doins -r "Packages"
 	doins "python3.3.zip"
@@ -42,7 +43,7 @@ src_install() {
 	doins "sublime_plugin.py",	
 	doexe "sublime_text"
 	doexe "plugin_host"	
-	dosym "/opt/${PN}/sublime_text" /usr/bin/subl3
+	dosym "/opt/${PACKAGE_INSTALL_NAME}/sublime_text" /usr/bin/subl3
 	make_desktop_entry "subl3" "Sublime Text 3" "accesories-text-editor" "Application;TextEditor"
 }
 
