@@ -40,7 +40,7 @@ src_install() {
 	doins -r "Packages"
 	doins "python3.3.zip"
 	doins "sublime.py"
-	doins "sublime_plugin.py",	
+	doins "sublime_plugin.py"	
 	doexe "sublime_text"
 	doexe "plugin_host"	
 	dosym "/opt/${PACKAGE_INSTALL_NAME}/sublime_text" /usr/bin/subl3
