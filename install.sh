@@ -38,7 +38,7 @@ install_layman() {
 }
 
 echo "Retrieving overlay definition file..."
-hash wget >/dev/null && wget --no-check-certificate https://raw.github.com/DamnWidget/sublime-text/master/sublime-text.xml -o /etc/layman/overlays/sublime-text.xml || {
+hash wget >/dev/null && wget --no-check-certificate https://raw.github.com/DamnWidget/sublime-text/master/sublime-text.xml -O /etc/layman/overlays/sublime-text.xml || {
 	echo "wget is not installed or there is some problem with the donwload (do you have internet connection?)"
 	exit
 }
