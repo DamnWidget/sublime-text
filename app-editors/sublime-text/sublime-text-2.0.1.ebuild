@@ -5,6 +5,7 @@
 EAPI="4"
 inherit eutils
 
+PACKAGE_INSTALL_NAME="sublime_text_2"
 PACKAGE_NAME="Sublime%20Text"
 PACKAGE="${PACKAGE_NAME}%20${PV}"
 S="${WORKDIR}/Sublime Text 2"
@@ -32,17 +33,17 @@ src_install() {
 	einfo "its propietary license in an implicit way"
 	einfo "If you're unsure about this just hit Ctrl+C now"
 
-	insinto /opt/${PN}_${PV%%.*}
-	into /opt/${PN}_${PV%%.*}
-	exeinto /opt/${PN}_${PV%%.*}
+	insinto /opt/${PACKAGE_INSTALL_NAME}
+	into /opt/${PACKAGE_INSTALL_NAME}
+	exeinto /opt/${PACKAGE_INSTALL_NAME}
 	doins -r "Icon"
 	doins -r "lib"
 	doins -r "Pristine Packages"
 	doins "sublime_plugin.py"
 	doins "PackageSetup.py"
 	doexe "sublime_text"
-	dosym "/opt/${PN}/sublime_text" /usr/bin/subl2	
-	make_desktop_entry "subl2" "Sublime Text 2" "accesories-text-editor" "Application;TextEditor"
+	dosym "/opt/${PACKAGE_INSTALL_NAME}/sublime_text" /usr/bin/subl2	
+	make_desktop_entry "subl2" "Sublime Text 2" "accesories-text-editor" "Development;TextEditor"
 }
 
 pkg_postinst() {
@@ -53,8 +54,7 @@ eselect_sublime_update() {
 	elog "Updating Sublime Text to the latest installed version"
 	elog "you can select the version you want to use just using"
 	elog
-	elog "eselect sublime update --sublimeX"
-	elog
-	elog "where X is the Sublime Text version"
-	eselect sublime set --use-old sublime_text_${PV%%.*}
+	elog "eselect sublime set sublime_text_2"
+	elog	
+	eselect sublime set sublime_text_2 --use-old 
 }
