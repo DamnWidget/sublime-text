@@ -44,7 +44,7 @@ src_install() {
 	doexe "sublime_text"
 	doexe "plugin_host"	
 	dosym "/opt/${PACKAGE_INSTALL_NAME}/sublime_text" /usr/bin/subl3
-	make_desktop_entry "subl3" "Sublime Text 3" "accesories-text-editor" "Application;TextEditor"
+	make_desktop_entry "subl3" "Sublime Text 3" "accesories-text-editor" "Development;TextEditor"
 }
 
 pkg_postinst() {
@@ -55,8 +55,8 @@ eselect_sublime_update() {
 	elog "Updating Sublime Text to the latest installed version"
 	elog "you can select the version you want to use just using"
 	elog
-	elog "eselect sublime update --sublimeX"
+	elog "eselect sublime set sublime_text_X"
 	elog
 	elog "where X is the Sublime Text version"
-	eselect sublime set --use-old sublime_text_${PV%%.*}	
+	eselect sublime set sublime_text_${PV%%.*} --use-old
 }
