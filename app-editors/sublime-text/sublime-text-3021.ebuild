@@ -41,8 +41,7 @@ src_install() {
 	doins "sublime.py"
 	doins "sublime_plugin.py",	
 	doexe "sublime_text"
-	doexe "plugin_host"
-	dosym "/opt/${PN}_${PV%%.*}/sublime_text" /usr/bin/subl3
+	doexe "plugin_host"	
 	make_desktop_entry "subl3" "Sublime Text 3" "accesories-text-editor" "Application;TextEditor"
 }
 
@@ -57,5 +56,5 @@ eselect_sublime_update() {
 	elog "eselect sublime update --sublimeX"
 	elog
 	elog "where X is the Sublime Text version"
-	eselect sublime update --sublime${PV%%.*}
+	eselect sublime set --use-old sublime_text_${PV%%.*}	
 }

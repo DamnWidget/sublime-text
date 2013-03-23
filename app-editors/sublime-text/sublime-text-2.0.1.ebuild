@@ -40,8 +40,7 @@ src_install() {
 	doins -r "Pristine Packages"
 	doins "sublime_plugin.py",
 	doins "PackageSetup.py"
-	doexe "sublime_text"
-	dosym "/opt/${PN}_${PV%%.*}/sublime_text" /usr/bin/subl
+	doexe "sublime_text"	
 	make_desktop_entry "subl" "Sublime Text 2" "accesories-text-editor" "Application;TextEditor"
 }
 
@@ -56,5 +55,5 @@ eselect_sublime_update() {
 	elog "eselect sublime update --sublimeX"
 	elog
 	elog "where X is the Sublime Text version"
-	eselect sublime update --sublime${PV%%.*}
+	eselect sublime set --use-old sublime_text_${PV%%.*}
 }
