@@ -7,7 +7,7 @@ inherit eutils
 
 PACKAGE_NAME="sublime_text_3_build"
 PACKAGE="${PACKAGE_NAME}_${PV}"
-S="${WORKDIR}/Sublime Text 2"
+S="${WORKDIR}/sublime_text_3"
 
 DESCRIPTION="Sublime Text is a sophisticated text editor for code, markup and prose. You'll love the slick user interface, extraordinary features and amazing performance."
 HOMEPAGE="http://www.sublimetext.com"
