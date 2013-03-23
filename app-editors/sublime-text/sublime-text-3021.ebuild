@@ -42,6 +42,7 @@ src_install() {
 	doins "sublime_plugin.py",	
 	doexe "sublime_text"
 	doexe "plugin_host"	
+	dosym "/opt/${PN}/sublime_text" /usr/bin/subl3
 	make_desktop_entry "subl3" "Sublime Text 3" "accesories-text-editor" "Application;TextEditor"
 }
 
