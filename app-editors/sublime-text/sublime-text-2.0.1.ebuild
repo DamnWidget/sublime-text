@@ -38,7 +38,7 @@ src_install() {
 	doins -r "Icon"
 	doins -r "lib"
 	doins -r "Pristine Packages"
-	doins "sublime_plugin.py",
+	doins "sublime_plugin.py"
 	doins "PackageSetup.py"
 	doexe "sublime_text"
 	dosym "/opt/${PN}/sublime_text" /usr/bin/subl2	
