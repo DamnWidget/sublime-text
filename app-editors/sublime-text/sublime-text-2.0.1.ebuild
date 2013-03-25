@@ -7,7 +7,7 @@ inherit eutils
 
 MY_PN="sublime_text_2"
 MY_P="Sublime%20Text"
-S="${WORKDIR}/${MY_P}%20${PV}"
+S="${WORKDIR}/Sublime Text 2"
 
 DESCRIPTION="Sophisticated text editor for code, markup and prose."
 HOMEPAGE="http://www.sublimetext.com"
