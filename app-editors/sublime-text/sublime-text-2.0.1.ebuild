@@ -54,7 +54,7 @@ src_install() {
 		"subl2" \
 		"Sublime Text 2" \
 		"sublime_text" \		
-		"Development;Utility;TextEditor" \
+		"Utility;TextEditor" \
 		"MimeType=text/plain"
 }
 
