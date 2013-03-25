@@ -47,7 +47,7 @@ src_install() {
 	local size
 	for size in 16 32 48 128 256 ; do
 		insinto /usr/share/icons/hicolor/${size}x${size}/apps
-		newins "${D}/opt/${MY_PN}/Icon/${size}x${size}/sublime_text.png" sublime_text.png
+		newins "Icon/${size}x${size}/sublime_text.png" sublime_text.png
 	done
 
 	make_desktop_entry \
