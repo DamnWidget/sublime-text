@@ -45,7 +45,7 @@ src_install() {
 	doexe "plugin_host"	
 	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl3
 
-	domenu "${D}/opt/${MY_PN}/sublime_text.desktop" || die
+	domenu "sublime_text.desktop" || die
 	local size
 	for size in 16 32 48 128 256 ; do
 		insinto /usr/share/icons/hicolor/${size}x${size}/apps
