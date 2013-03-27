@@ -37,6 +37,7 @@ src_install() {
 	insinto /opt/${MY_PN}
 	into /opt/${MY_PN}
 	exeinto /opt/${MY_PN}	
+	doins -r "Icon"
 	doins -r "lib"
 	doins -r "Pristine Packages"
 	doins "sublime_plugin.py"

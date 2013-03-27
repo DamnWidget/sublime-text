@@ -36,7 +36,8 @@ pkg_nofetch() {
 src_install() {
 	insinto /opt/${MY_PN}
 	into /opt/${MY_PN}
-	exeinto /opt/${MY_PN}	
+	exeinto /opt/${MY_PN}
+	doins -r "Icon"
 	doins -r "Packages"
 	doins "python3.3.zip"
 	doins "sublime.py"
@@ -44,13 +45,14 @@ src_install() {
 	doexe "sublime_text"
 	doexe "plugin_host"	
 	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl3
-
-	domenu "sublime_text.desktop" || die
+	
 	local size
 	for size in 16 32 48 128 256 ; do
 		insinto /usr/share/icons/hicolor/${size}x${size}/apps
 		newins "Icon/${size}x${size}/sublime-text.png" sublime-text.png
-	done	
+	done
+
+	make_desktop_entry subl3 "Sublime Text 3" sublime_text "Utility;TextEditor"	
 }
 
 pkg_postinst() {
