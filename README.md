@@ -25,7 +25,7 @@ To install sublime-text overlay you need to donwload the overlay definition file
 Overlays
 --------
 
-1. app-admin/eselect-sublinme
+1. app-admin/eselect-sublime
 2. app-editor/sublime-text
 
 
