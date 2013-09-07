@@ -32,7 +32,7 @@ Overlays
 Is this overlay supported by Gentoo?
 ------------------------------------
 
-Not yet
+Not yet, and there is no guarantee of being included as official overlay or directly included in the distro.
 
 
 Where can I send feedbacks?
