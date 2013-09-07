@@ -33,17 +33,17 @@ pkg_nofetch() {
 	eerror "Sublime Text official site seems to be unresponsive."
 }
 
-src_install() {	
+src_install() {
 	insinto /opt/${MY_PN}
 	into /opt/${MY_PN}
-	exeinto /opt/${MY_PN}	
+	exeinto /opt/${MY_PN}
 	doins -r "Icon"
 	doins -r "lib"
 	doins -r "Pristine Packages"
 	doins "sublime_plugin.py"
 	doins "PackageSetup.py"
 	doexe "sublime_text"
-	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl2	
+	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl2
 
 	local size
 	for size in 16 32 48 128 256 ; do
@@ -64,6 +64,6 @@ eselect_sublime_update() {
 	elog "you can select the version you want to use just using"
 	elog
 	elog "eselect sublime set sublime_text_2"
-	einfo	
-	eselect sublime set sublime_text_2 --use-old 
+	einfo
+	eselect sublime set sublime_text_2 --use-old
 }
