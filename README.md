@@ -1,6 +1,8 @@
 Sublime Text Overlay
 ====================
 
+[![Build Status](https://travis-ci.org/DamnWidget/sublime-text.png)](https://travis-ci.org/DamnWidget/sublime-text)
+
 Sublime Text overlay is a collection of ebuilds to install Sublime Text 2 or Sublime Text 3 in slots and select one using eselect script on Gentoo or Gentoo based distributions that support portage.
 
 
