@@ -1,0 +1,22 @@
+language: python
+
+env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
+
+before_install:
+  # Set default config
+  - "sudo mkdir /usr/share/portage"
+  - "sudo ln -s $HOME/portage/cnf /usr/share/portage/config"
+
+  # Create /usr/portage
+  - "sudo mkdir /usr/portage"
+  - "sudo chown $USER:$USER /usr/portage"
+
+  # Populate /usr/portage
+  - "rsync -arzp --safe-links rsync://rsync.gentoo.org/gentoo-portage/ /usr/portage/"
+  - "mkdir /usr/portage/distfiles"
+
+  # Install development portage (it should have the latest suggestions)
+  - "git clone git://git.overlays.gentoo.org/proj/portage.git $HOME/portage"
+
+script:
+  - "$HOME/portage/bin/repoman full"
