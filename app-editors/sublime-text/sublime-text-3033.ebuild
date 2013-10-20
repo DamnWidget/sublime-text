@@ -52,7 +52,7 @@ src_install() {
 		newins "Icon/${size}x${size}/sublime-text.png" sublime-text.png
 	done
 
-	make_desktop_entry subl3 "Sublime Text 3" sublime_text "Utility;TextEditor"
+	make_desktop_entry subl3 "Sublime Text 3" sublime-text "Utility;TextEditor"
 }
 
 pkg_postinst() {
