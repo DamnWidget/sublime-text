@@ -9,19 +9,17 @@ Sublime Text overlay is a collection of ebuilds to install Sublime Text 2 or Sub
 Setup
 -----
 
-The easier way to install this overlay is using through the installation script @install.sh provided in the same package using `wget`.
+Install layman in your ditribution is you don't installed it already and then execute:
+
+    sudo layman -a sublime-text
+
+If you don't know what layman is or you are not sure about how to install it, you can install this overlay using the installation script @install.sh provided in the same package using `wget`.
 
 
 The install.sh Script
 ---------------------
 
 		wget --no-check-certificate https://raw.github.com/DamnWidget/sublime-text/master/install.sh -O - | sudo sh
-
-
-Manual Way
-----------
-
-To install sublime-text overlay you need to download the overlay definition file `sublime-text.xml` and add it to your `layman.cfg` file or add it in your `/etc/layman/overlays` directory. Then you have to add the overlay to your layman local overlays and syncronize your emerge | eix caches.
 
 
 Overlays
@@ -34,7 +32,7 @@ Overlays
 Is this overlay supported by Gentoo?
 ------------------------------------
 
-Not yet, and there is no guarantee of being included as official overlay or directly included in the distro.
+Yes, since May 2013 this overlay is officialy included in the Gentoo layman overlays list.
 
 
 Where can I send feedbacks?
