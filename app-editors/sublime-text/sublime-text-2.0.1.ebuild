@@ -5,9 +5,12 @@
 EAPI="4"
 inherit eutils
 
-MY_PN="sublime_text_2"
+# get the major version from PV
+MV="${PV:0:1}"
+
+MY_PN="sublime_text_${MV}"
 MY_P="Sublime%20Text"
-S="${WORKDIR}/Sublime Text 2"
+S="${WORKDIR}/Sublime Text ${MV}"
 
 DESCRIPTION="Sophisticated text editor for code, markup and prose."
 HOMEPAGE="http://www.sublimetext.com"
@@ -15,16 +18,15 @@ HOMEPAGE="http://www.sublimetext.com"
 BASE_URI="http://c758482.r82.cf2.rackcdn.com"
 SRC_URI="amd64? ( ${BASE_URI}/${MY_P}%20${PV}%20x64.tar.bz2 )
 	x86? ( ${BASE_URI}/${MY_P}%20${PV}.tar.bz2 )"
-
 LICENSE="Sublime"
-SLOT="2"
+SLOT="${MV}"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="multislot"
 RESTRICT="bindist mirror strip"
 
-DEPEND="=app-admin/eselect-sublime-1.0
-	>=media-libs/libpng-1.2.46
-	>=x11-libs/gtk+-2.24.8-r1:2"
+DEPEND=">=media-libs/libpng-1.2.46
+	>=x11-libs/gtk+-2.24.8-r1:2
+	multislot? ( app-admin/eselect-sublime )"
 RDEPEND="${DEPEND}"
 
 QA_PREBUILT="*"
@@ -43,7 +45,7 @@ src_install() {
 	doins "sublime_plugin.py"
 	doins "PackageSetup.py"
 	doexe "sublime_text"
-	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl2
+	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl${MV}
 
 	local size
 	for size in 16 32 48 128 256 ; do
@@ -51,11 +53,16 @@ src_install() {
 		newins "Icon/${size}x${size}/sublime_text.png" sublime_text.png
 	done
 
-	make_desktop_entry subl2 "Sublime Text 2" sublime_text "Utility;TextEditor"
+	make_desktop_entry subl${MV} "Sublime Text ${MV}" sublime_text "Utility;TextEditor"
 }
 
 pkg_postinst() {
-	eselect_sublime_update
+	if use multislot; then
+		eselect_sublime_update
+	else
+		einfo "using major version ${MV} as default"
+		dosym /usr/bin/subl${MV} /usr/bin/subl
+	fi
 }
 
 eselect_sublime_update() {
@@ -65,5 +72,5 @@ eselect_sublime_update() {
 	elog
 	elog "eselect sublime set sublime_text_2"
 	einfo
-	eselect sublime set sublime_text_2 --use-old
+	eselect sublime set sublime_text_${MV} --use-old
 }
