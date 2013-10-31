@@ -41,11 +41,11 @@ src_install() {
 	exeinto /opt/${MY_PN}
 	doins -r "Icon"
 	doins -r "Packages"
-    doins "python3.3.zip"
-    doins "sublime.py"
-    doins "sublime_plugin.py"
-    doexe "sublime_text"
-    doexe "plugin_host"
+	doins "python3.3.zip"
+	doins "sublime.py"
+	doins "sublime_plugin.py"
+	doexe "sublime_text"
+	doexe "plugin_host"
 	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl${MV}
 
 	local size
