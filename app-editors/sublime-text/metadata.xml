@@ -8,4 +8,9 @@
 	<longdescription lang="en">
 		Sublime Text is a sophisticated text editor for code, html and prose. You'll love the slick user interface and extraordinary features.
 	</longdescription>
+	<use>
+		<flag name='multislot'>
+			Support easy switching between different major versions of Sublime Text via the /usr/bin/subl symlink.
+		</flag>
+	</use>
 </pkgmetadata>
