@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,12 +21,13 @@ SRC_URI="amd64? ( ${BASE_URI}/${MY_PN}_build_${PV}_x64.tar.bz2 )
 LICENSE="Sublime"
 SLOT="${MV}"
 KEYWORDS="~amd64 ~x86"
-IUSE="multislot"
+IUSE="multislot dbus"
 RESTRICT="bindist mirror strip"
 
 DEPEND=">=media-libs/libpng-1.2.46
 	>=x11-libs/gtk+-2.24.8-r1:2
-	multislot? ( app-admin/eselect-sublime )"
+	multislot? ( app-admin/eselect-sublime )
+	dbus? ( sys-apps/dbus )"
 RDEPEND="${DEPEND}"
 
 QA_PREBUILT="*"
