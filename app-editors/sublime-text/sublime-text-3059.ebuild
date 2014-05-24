@@ -26,7 +26,8 @@ RESTRICT="bindist mirror strip"
 
 DEPEND=">=media-libs/libpng-1.2.46
 	>=x11-libs/gtk+-2.24.8-r1:2
-	multislot? ( app-admin/eselect-sublime )"
+	multislot? ( app-admin/eselect-sublime )
+	single-instance? ( sys-apps/dbus )"
 RDEPEND="${DEPEND}"
 
 QA_PREBUILT="*"
