@@ -12,7 +12,7 @@ MY_PN="sublime_text_${MV}"
 MY_P="Sublime%20Text"
 S="${WORKDIR}/Sublime Text ${MV}"
 
-DESCRIPTION="Sophisticated text editor for code, markup and prose."
+DESCRIPTION="Sophisticated text editor for code, markup and prose"
 HOMEPAGE="http://www.sublimetext.com"
 
 BASE_URI="http://c758482.r82.cf2.rackcdn.com"
