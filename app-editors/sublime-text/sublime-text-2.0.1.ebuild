@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="4"
-inherit eutils
+inherit eutils gnome2-utils
 
 # get the major version from PV
 MV="${PV:0:1}"
@@ -57,13 +57,22 @@ src_install() {
 	make_desktop_entry subl${MV} "Sublime Text ${MV}" sublime_text "Utility;TextEditor" "StartupNotify=true"
 }
 
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
 pkg_postinst() {
+	gnome2_icon_cache_update
 	if use multislot; then
 		eselect_sublime_update
 	else
 		einfo "using major version ${MV} as default"
 		dosym /usr/bin/subl${MV} /usr/bin/subl
 	fi
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
 
 eselect_sublime_update() {
