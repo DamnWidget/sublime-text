@@ -54,7 +54,7 @@ src_install() {
 		newins "Icon/${size}x${size}/sublime_text.png" sublime_text.png
 	done
 
-	make_desktop_entry subl${MV} "Sublime Text ${MV}" sublime_text "Utility;TextEditor" "StartupNotify=true"
+	make_desktop_entry "subl${MV} %F" "Sublime Text ${MV}" sublime_text "Utility;TextEditor" "StartupNotify=true"
 }
 
 pkg_preinst() {
