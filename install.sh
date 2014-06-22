@@ -53,5 +53,5 @@ $LAYMAN -a sublime-text
 
 echo 
 echo "Installation complete, you can now install sublime-text using: "
-echo "\temerge app-editors/sublimt-text"
+echo "\temerge app-editors/sublime-text"
 echo 
