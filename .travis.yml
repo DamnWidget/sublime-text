@@ -19,4 +19,4 @@ before_install:
   - "git clone git://git.overlays.gentoo.org/proj/portage.git $HOME/portage"
 
 script:
-  - "$HOME/portage/bin/repoman -v full"
+  - "$HOME/portage/bin/repoman -vdx full"
