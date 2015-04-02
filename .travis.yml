@@ -1,22 +1,20 @@
 language: python
+python:
+  - pypy
 
-env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
-
-before_install:
-  # Set default config
-  - "sudo mkdir /usr/share/portage"
-  - "sudo ln -s $HOME/portage/cnf /usr/share/portage/config"
-
-  # Create /usr/portage
-  - "sudo mkdir /usr/portage"
-  - "sudo chown $USER:$USER /usr/portage"
-
-  # Populate /usr/portage
-  - "rsync -arzp --safe-links rsync://rsync.gentoo.org/gentoo-portage/ /usr/portage/"
-  - "mkdir /usr/portage/distfiles"
-
-  # Install development portage (it should have the latest suggestions)
-  - "git clone git://git.overlays.gentoo.org/proj/portage.git $HOME/portage"
-
+before_script:
+    - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
+    - echo "portage:x:250:250:portage:/var/tmp/portage:/bin/false" >> /etc/passwd
+    - echo "portage::250:portage,travis" >> /etc/group
+    - mkdir -p travis-overlay /etc/portage/ /usr/portage/distfiles
+    - mv !(travis-overlay) travis-overlay/
+    - mv .git travis-overlay/
+    - wget -O - "https://github.com/gentoo/portage/archive/master.tar.gz" | tar -xz
+    - wget -O - "https://github.com/gentoo/gentoo-portage-rsync-mirror/archive/master.tar.gz" | tar xz -C /usr/portage --strip-components=1
+    - cp portage-master/cnf/repos.conf /etc/portage/
+    - ln -s /usr/portage/profiles/base/ /etc/portage/make.profile
+    - wget "http://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
+    - cd travis-overlay
 script:
-  - "$HOME/portage/bin/repoman -vdx full"
+    - python ../portage-master/bin/repoman full -vdx
+
