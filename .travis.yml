@@ -10,10 +10,10 @@ before_script:
     - mv !(travis-overlay) travis-overlay/
     - mv .git travis-overlay/
     - wget -O - "https://github.com/gentoo/portage/archive/master.tar.gz" | tar -xz
-    - wget -O - "https://github.com/gentoo/gentoo-portage-rsync-mirror/archive/master.tar.gz" | tar xz -C /usr/portage --strip-components=1
+    - wget -O - "https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz" | tar xz -C /usr/portage --strip-components=1
     - cp portage-master/cnf/repos.conf /etc/portage/
     - ln -s /usr/portage/profiles/base/ /etc/portage/make.profile
-    - wget "http://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
+    - wget "https://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
     - cd travis-overlay
 script:
     - python ../portage-master/bin/repoman full -vdx
