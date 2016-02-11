@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI="4"
 inherit eutils gnome2-utils
@@ -26,7 +26,7 @@ RESTRICT="bindist mirror strip"
 
 DEPEND=">=media-libs/libpng-1.2.46
 	>=x11-libs/gtk+-2.24.8-r1:2
-	multislot? ( app-admin/eselect-sublime )
+	multislot? ( app-eselect/eselect-sublime )
 	dbus? ( sys-apps/dbus )"
 RDEPEND="${DEPEND}"
 
