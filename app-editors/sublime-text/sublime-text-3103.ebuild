@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,7 +26,7 @@ RESTRICT="bindist mirror strip"
 
 DEPEND=">=media-libs/libpng-1.2.46
 	>=x11-libs/gtk+-2.24.8-r1:2
-	multislot? ( app-admin/eselect-sublime )
+	multislot? ( app-eselect/eselect-sublime )
 	dbus? ( sys-apps/dbus )"
 RDEPEND="${DEPEND}"
 
