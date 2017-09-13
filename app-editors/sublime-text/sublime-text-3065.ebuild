@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI="4"
 inherit eutils gnome2-utils
@@ -37,9 +36,11 @@ pkg_nofetch() {
 }
 
 src_install() {
-	insinto /opt/${MY_PN}
-	into /opt/${MY_PN}
-	exeinto /opt/${MY_PN}
+	local targetdir="/opt/${MY_PN}"
+
+	insinto "$targetdir"
+	into "$targetdir"
+	exeinto "$targetdir"
 	doins -r "Icon"
 	doins -r "Packages"
 	doins "python3.3.zip"
@@ -47,7 +48,7 @@ src_install() {
 	doins "sublime_plugin.py"
 	doexe "sublime_text"
 	doexe "plugin_host"
-	dosym "/opt/${MY_PN}/sublime_text" /usr/bin/subl${MV}
+	dosym "$targetdir/sublime_text" /usr/bin/subl${MV}
 
 	local size
 	for size in 16 32 48 128 256 ; do
@@ -67,8 +68,9 @@ pkg_postinst() {
 	if use multislot; then
 		eselect_sublime_update
 	else
+		local bindir="/usr/bin"
 		einfo "using major version ${MV} as default"
-		dosym /usr/bin/subl${MV} /usr/bin/subl
+		dosym $bindir/subl${MV} /usr/bin/subl
 	fi
 }
 
