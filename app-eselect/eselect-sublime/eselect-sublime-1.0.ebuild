@@ -1,6 +1,5 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 DESCRIPTION="Utility to change the version of Sublime Text being used"
 HOMEPAGE="https://github.com/DamnWidget/eselect-sublime"
